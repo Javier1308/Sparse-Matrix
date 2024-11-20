@@ -303,6 +303,35 @@ public:
         }
         return resultado;
     }
+
+    void imprimir()
+    {
+        cout << "Representacion enlazada por filas:" << endl;
+        for (int i = 0; i < n_rows; ++i)
+        {
+            Node<T> *current = rows[i];
+            cout << "Fila " << i + 1 << ": ";
+            while (current)
+            {
+                cout << "(" << current->pos_row + 1 << ", " << current->pos_col + 1 << ", " << current->data << ") ";
+                current = current->next_col;
+            }
+            cout << endl;
+        }
+
+        cout << "Representacion enlazada por columnas:" << endl;
+        for (int j = 0; j < n_cols; ++j)
+        {
+            Node<T> *current = cols[j];
+            cout << "Columna " << j + 1 << ": ";
+            while (current)
+            {
+                cout << "(" << current->pos_row + 1 << ", " << current->pos_col + 1 << ", " << current->data << ") ";
+                current = current->next_row;
+            }
+            cout << endl;
+        }
+    }
 };
 
 // Ejemplo de uso
